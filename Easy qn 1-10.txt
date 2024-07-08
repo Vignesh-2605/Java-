@@ -1,0 +1,286 @@
+Qn 1) Reverse String
+import java.io.*;
+import java.util.*;
+public class Revstr{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        String a=obj.nextLine();
+        int i=0;
+        char[] b=a.toCharArray();
+        char[] c=new char[b.length];
+        int j=0;
+        for (i=b.length-1;i>=0;i--){
+            c[j]=b[i];
+            j++;
+        }
+        for (i=0;i<c.length;i++){
+            System.out.print(c[i]);
+        }
+    }
+}
+
+Qn 2) Convert Int to String
+import java.io.*;
+import java.util.*;
+public class Revstr{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        String a=obj.nextLine();
+        int res=0,s=1,i=0;
+        if (a.charAt(0)=='-'){
+            s=-1;
+            i=1;
+        }
+        for (;i<a.length();i++){
+            char c=a.charAt(i);
+            int d=c-'0';
+            res=res*10+d;
+        }
+        System.out.print(res);
+    }
+}
+
+Qn 3) Username Validity
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter username: ");
+        String u = s.nextLine();
+
+        boolean isValid = true;
+
+        // Check if the username is at least 5 characters long
+        if (u.length() < 5) {
+            isValid = false;
+            System.out.println("Username must be at least 5 characters long.");
+        }
+
+        // Check if the username contains only letters and digits
+        for (char c : u.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                isValid = false;
+                System.out.println("Username must contain only letters and digits.");
+                break;
+            }
+        }
+
+        // Check if the username starts with a letter
+        if (!Character.isLetter(u.charAt(0))) {
+            isValid = false;
+            System.out.println("Username must start with a letter.");
+        }
+
+        if (isValid) {
+            System.out.println("Username is valid.");
+        } else {
+            System.out.println("Username is not valid.");
+        }
+
+        s.close();
+    }
+}
+
+Qn 4) Sort String
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter the number of names:");
+        int n = s.nextInt();
+        s.nextLine(); // Consume the newline character
+
+        String[] names = new String[n];
+        System.out.println("Enter the names:");
+        for (int i = 0; i < n; i++) {
+            names[i] = s.nextLine();
+        }
+
+        System.out.print("Order(A/D): ");
+        char order = s.next().charAt(0);
+
+        if (order == 'A' || order == 'a') {
+            Arrays.sort(names);
+        } else if (order == 'D' || order == 'd') {
+            Arrays.sort(names, Comparator.reverseOrder());
+        } else {
+            System.out.println("Invalid order choice");
+            s.close();
+            return;
+        }
+
+        System.out.println("Sorted names:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        s.close();
+    }
+}
+
+Qn 5) Print Special charecters
+import java.io.*;
+import java.util.*;
+
+public class SpecialCharacters {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter a line: ");
+        String l = s.nextLine();
+
+        int c = 0;
+        StringBuilder sc = new StringBuilder();
+
+        for (char x : l.toCharArray()) {
+            if (!Character.isLetterOrDigit(x) && !Character.isWhitespace(x)) {
+                sc.append(x).append(' ');
+                c++;
+            }
+        }
+
+        System.out.println("Special characters: " + sc.toString().trim());
+        System.out.println("Number of special characters: " + c);
+
+        s.close();
+    }
+}
+
+Qn 6) Count vowels
+import java.io.*;
+import java.util.*;
+
+public class VowelCounter {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter a statement: ");
+        String st = s.nextLine();
+
+        int c = 0;
+        for (char x : st.toCharArray()) {
+            if ("AEIOUaeiou".indexOf(x) != -1) {
+                c++;
+            }
+        }
+
+        System.out.println("Number of vowels = " + c);
+
+        s.close();
+    }
+}
+
+Qn 7) Consonants and vowels
+import java.io.*;
+import java.util.*;
+
+public class ConsonantsAndVowels {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Given Word: ");
+        String w = s.nextLine();
+
+        StringBuilder c = new StringBuilder();
+        StringBuilder v = new StringBuilder();
+
+        for (char x : w.toCharArray()) {
+            if ("AEIOUaeiou".indexOf(x) != -1) {
+                v.append(x).append(' ');
+            } else if (Character.isLetter(x)) {
+                c.append(x).append(' ');
+            }
+        }
+
+        System.out.println("Consonants: " + c.toString().trim());
+        System.out.println("Vowels: " + v.toString().trim());
+
+        s.close();
+    }
+}
+
+Qn 8) Charecter is present or not
+import java.io.*;
+import java.util.*;
+
+public class CharacterSearch {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter the string: ");
+        String str = s.nextLine();
+
+        System.out.print("Enter the character to be searched: ");
+        char ch = s.next().charAt(0);
+
+        boolean f = false;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
+                System.out.println(ch + " is found in the string at index: " + i);
+                f = true;
+                break;
+            }
+        }
+
+        if (!f) {
+            System.out.println(ch + " is not found in the string.");
+        }
+
+        s.close();
+    }
+}
+
+Qn 9) Arrange in reverse alphabetically
+import java.io.*;
+import java.util.*;
+
+public class ReverseAlphabetical {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter the word: ");
+        String w = s.nextLine();
+
+        char[] a = w.toCharArray();
+        Arrays.sort(a);
+
+        StringBuilder r = new StringBuilder(new String(a));
+        r.reverse();
+
+        System.out.println("Alphabetical Order: " + r.toString().replace("", " ").trim());
+
+        s.close();
+    }
+}
+
+Qn 10) Remove vowels from string
+import java.io.*;
+import java.util.*;
+
+public class RemoveVowels {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = s.nextLine();
+
+        StringBuilder r = new StringBuilder();
+
+        for (char x : str.toCharArray()) {
+            if ("AEIOUaeiou".indexOf(x) == -1) {
+                r.append(x);
+            }
+        }
+
+        System.out.println("The string without vowels is: " + r.toString());
+
+        s.close();
+    }
+}
+
