@@ -1,0 +1,242 @@
+Qn 11) Matrix multiplication
+import java.io.*;
+import java.util.*;
+public class mat{
+    public static void main(String[] args){
+        int[][] a={{1,2},{5,3}};
+        int[][] b={{2,3},{4,1}};
+        int n=a.length;
+        int i=0,j=0,k=0;
+        int[][] c= new int[n][n];
+        for (i=0;i<n;i++){
+            for (j=0;j<n;j++){
+                for (k=0;k<n;k++){
+                    c[i][j]+=a[i][k]*b[k][j];
+                }
+            }
+        }
+        for (i=0;i<n;i++){
+            for (j=0;j<n;j++){
+                System.out.println(c[i][j]);
+            }
+        }
+    }
+}
+
+Qn 12) Matrix addition
+import java.io.*;
+import java.util.*;
+public class mat{
+    public static void main(String[] args){
+        int[][] a={{1,2},{5,3}};
+        int[][] b={{2,3},{4,1}};
+        int n=a.length;
+        int i=0,j=0;
+        int[][] c= new int[n][n];
+        for (i=0;i<n;i++){
+            for (j=0;j<n;j++){
+                c[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        for (i=0;i<n;i++){
+            for (j=0;j<n;j++){
+                System.out.println(c[i][j]);
+            }
+        }
+    }
+}
+
+Qn 13) Merge 2 array
+import java.io.*;
+import java.util.*;
+public class mat{
+    public static void main(String[] args){
+       int[] a={1,24,3};
+       int[] b={2,34,5};
+       int n=a.length,m=b.length;
+       int i=0,j=0;
+       int[] c= new int[n+m];
+       for (i=0;i<n;i++){
+           c[i]=a[i];
+       }
+       i=0;
+       for (j=n;j<n+m;j++){
+           c[j]=b[i];
+           i+=1;
+       }
+       for (i=0;i<c.length;i++){
+           System.out.println(c[i]);
+       }
+    }
+}
+
+Qn 14) Mean ,Median and Mode
+import java.io.*;
+import java.util.*;
+
+public class FindMeanMedianMode {
+    public static void main(String[] args) {
+        int[] a = {16, 18, 27, 16, 23, 21, 19};
+        System.out.println("Mean = " + mean(a));
+        System.out.println("Median = " + median(a));
+        System.out.println("Mode = " + mode(a));
+    }
+
+    public static double mean(int[] a) {
+        double s = 0;
+        for (int x : a) s += x;
+        return s / a.length;
+    }
+
+    public static double median(int[] a) {
+        Arrays.sort(a);
+        int n = a.length;
+        if (n % 2 == 0) return (a[n / 2 - 1] + a[n / 2]) / 2.0;
+        return a[n / 2];
+    }
+
+    public static int mode(int[] a) {
+        int maxCount = 0, modeValue = a[0];
+        for (int i = 0; i < a.length; i++) {
+            int count = 0;
+            for (int j = 0; j < a.length; j++) {
+                if (a[j] == a[i]) count++;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                modeValue = a[i];
+            }
+        }
+        return modeValue;
+    }
+}
+
+Qn 15) Composite number in a array
+import java.io.*;
+import java.util.*;
+
+public class FindCompositeNumbers {
+    public static void main(String[] args) {
+        int[] a = {16, 18, 27, 16, 23, 21, 19};
+        System.out.println("Number of Composite Numbers = " + countComposite(a));
+    }
+
+    public static boolean isComposite(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return true;
+        }
+        return false;
+    }
+
+    public static int countComposite(int[] a) {
+        int c = 0;
+        for (int x : a) {
+            if (isComposite(x)) c++;
+        }
+        return c;
+    }
+}
+
+Qn 16) Right triangle pattern
+import java.io.*;
+import java.util.*;
+
+public class RightTriangleStarPattern {
+    public static void main(String[] args) {
+        int n = 5;
+        printPattern(n);
+    }
+
+    public static void printPattern(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = n; j > i; j--) System.out.print(" ");
+            for (int k = 1; k <= i; k++) System.out.print("*");
+            System.out.println();
+        }
+    }
+}
+
+Qn 17) Pascal triangle
+import java.io.*;
+import java.util.*;
+
+public class PascalsTriangle {
+    public static void main(String[] args) {
+        int n = 5;
+        printPascalsTriangle(n);
+    }
+
+    public static void printPascalsTriangle(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i; j++) System.out.print(" ");
+            int c = 1;
+            for (int k = 0; k <= i; k++) {
+                System.out.print(c + " ");
+                c = c * (i - k) / (k + 1);
+            }
+            System.out.println();
+        }
+    }
+}
+
+Qn 18) Rectangle pattern
+import java.io.*;
+import java.util.*;
+
+public class RectangleSymbolPattern {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the symbol: ");
+        char ch = s.next().charAt(0);
+        printRectangle(ch, 5, 7);
+    }
+
+    public static void printRectangle(char ch, int r, int c) {
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) System.out.print(ch + " ");
+            System.out.println();
+        }
+    }
+}
+
+Qn 19) Pattern
+import java.io.*;
+import java.util.*;
+
+public class NumberPattern {
+    public static void main(String[] args) {
+        int x = 1, max = 3;
+        printPattern(x, max);
+    }
+
+    public static void printPattern(int x, int max) {
+        for (int i = 1; i <= max; i++) {
+            for (int j = 0; j < i; j++) System.out.print(x);
+            System.out.println();
+        }
+        for (int i = max - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) System.out.print(x);
+            System.out.println();
+        }
+    }
+}
+
+Qn 20) Inverted full pyramid
+import java.io.*;
+import java.util.*;
+
+public class InvertedFullPyramid {
+    public static void main(String[] args) {
+        int n = 5;
+        printPyramid(n);
+    }
+
+    public static void printPyramid(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = n; j > i; j--) System.out.print(" ");
+            for (int k = 1; k <= 2 * i - 1; k++) System.out.print("*");
+            System.out.println();
+        }
+    }
+}
