@@ -1,0 +1,218 @@
+Qn 21) Print Pattern 
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        char c=obj.nextLine().charAt(0);
+        int n=obj.nextInt();
+        int i=0,j=0;
+        for (i=1;i<=n;i++){
+            for (j=1;j<=i;j++){
+                System.out.print(c+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Qn 22) Hollow square
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        int i=0,j=0;
+        for (i=1;i<=n;i++){
+            for (j=1;j<=n;j++){
+                if (i==1||i==n||j==1||j==n){
+                    System.out.print("*"+" ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+Qn 23) Pattern
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        int c=1;
+        for (int i=1;i<=n;i++){
+            for (int j=1;j<=i;j++){
+                System.out.print((c)+" ");
+            }
+            c++;
+            System.out.println();
+        }
+    }
+}
+
+Qn 24) Pattern
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        int c=1;
+        for (int i=1;i<=n;i++){
+            for (int j=1;j<=i;j++){
+                System.out.print((c*c)+" ");
+                c++;
+            }
+            System.out.println();
+        }
+    }
+} 
+
+Qn 25) Pattern
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        int c=1;
+        for (int i=1;i<=n;i++){
+            for (int j=1;j<=i;j++){
+                System.out.print((c)+" ");
+            }
+            c++;
+            System.out.println();
+        }
+        c=c-2;
+        for (int i=n-1;i>0;i--){
+            for (int j=1;j<=i;j++){
+                System.out.print((c)+" ");
+            }
+            c--;
+            System.out.println();
+        }
+    }
+}
+
+Qn 26) $ Hollow Square
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        int i=0,j=0;
+        for (i=1;i<=n;i++){
+            for (j=1;j<=n;j++){
+                if (i==1||i==n||j==1||j==n){
+                    System.out.print("$"+" ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+Qn 27) Inverted Pyramid
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner obj= new Scanner(System.in);
+        int n=obj.nextInt();
+        for (int i=n;i>0;i--){
+            for (int j=1;j<=n-i;j++){
+                System.out.print(" ");
+            }
+            for (int k=1;k<=2*i-1;k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Qn 28) Reverse Number
+import java.io.*;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        boolean f = n < 0;
+        n = Math.abs(n);
+        int r = 0;
+        while (n > 0) {
+            r = r * 10 + n % 10;
+            n /= 10;
+        }
+        if (f) {
+            r = -r;
+        }
+        System.out.println("Reverse Number: " + r);
+    }
+}
+
+Qn 29) Int to bin - rev bin to int
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String i = s.nextLine();
+        boolean isValid = true;
+        if (i == null || i.isEmpty()) {
+            isValid = false;
+        } else {
+            for (int j = 0; j < i.length(); j++) {
+                if (!Character.isDigit(i.charAt(j)) && (i.charAt(j) != '-' || j != 0)) {
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+        if (!isValid) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+            return;
+        }
+        int n = Integer.parseInt(i);
+        if (n < 0) {
+            System.out.println("Please enter a non-negative integer.");
+            return;
+        }
+        String b = Integer.toBinaryString(n);
+        StringBuilder r = new StringBuilder(b).reverse();
+        int x = Integer.parseInt(r.toString(), 2);
+        System.out.println("Output: " + x);
+    }
+}
+
+Qn 30) Voting check
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        int a = s.nextInt();
+        int votingAge = 18;
+        if (a >= votingAge) {
+            System.out.println("You are eligible to vote.");
+        } 
+        else {
+            int yearsLeft = votingAge - a;
+            System.out.println("You are allowed to vote after " + yearsLeft + " years.");
+        }
+    }
+}
