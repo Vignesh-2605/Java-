@@ -1,0 +1,174 @@
+Qn 41) Sqaure and cube of a no
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        double n = s.nextDouble();
+        System.out.println("Square Number: " + (n * n));
+        System.out.println("Cube Number: " + (n * n * n));
+    }
+}
+
+
+Qn 42) Nth odd number in n odd number
+ import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        for (int i = 1, c = 0; c < n; i += 2, c++) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+Qn 43) Amstrong Number
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt(), t = n, r, sum = 0;
+        while (t != 0) {
+            r = t % 10;
+            sum += r * r * r;
+            t /= 10;
+        }
+        if (sum == n) System.out.println("Given number is Armstrong number");
+        else System.out.println("Given number is not Armstrong number");
+    }
+}
+
+Qn 44) Sum of digits
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt(), sum = 0;
+        String num = s.next();
+        for (char c : num.toCharArray()) {
+            sum += Character.getNumericValue(c);
+        }
+        while (sum > 9) {
+            int t = sum;
+            sum = 0;
+            while (t != 0) {
+                sum += t % 10;
+                t /= 10;
+            }
+        }
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+Qn 45) Square root of perfect square number
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int sqrt = (int) Math.sqrt(n);
+        if (sqrt * sqrt == n) {
+            System.out.println("Square Root: " + sqrt + ", " + -sqrt);
+        } else {
+            System.out.println("The number is not a perfect square.");
+        }
+    }
+}
+
+Qn 46) Check if number is pow of three
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        boolean isPowerOfThree = n > 0 && 1162261467 % n == 0; // 1162261467 is 3^19, the largest power of 3 that fits in an int
+        System.out.println(isPowerOfThree);
+    }
+}
+
+Qn 47) Most frequent word
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String paragraph = s.nextLine();
+        Set<String> banned = new HashSet<>(Arrays.asList(s.nextLine().split(",")));
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : paragraph.toLowerCase().split("\\W+")) {
+            if (!banned.contains(word)) {
+                wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            }
+        }
+        String mostFrequent = Collections.max(wordCount.entrySet(), Map.Entry.comparingByValue()).getKey();
+        System.out.println(mostFrequent);
+    }
+}
+
+Qn 48) duplicate occurrence of zero
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] arr = Arrays.stream(s.nextLine().split(",")).mapToInt(Integer::parseInt).toArray();
+        int[] res = new int[arr.length];
+        for (int i = 0, j = 0; i < arr.length && j < res.length; i++, j++) {
+            res[j] = arr[i];
+            if (arr[i] == 0 && j + 1 < res.length) {
+                res[++j] = 0;
+            }
+        }
+        System.out.println(Arrays.toString(res));
+    }
+}
+
+Qn 49) Missing no in array
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] nums = Arrays.stream(s.nextLine().split(",")).mapToInt(Integer::parseInt).toArray();
+        int n = nums.length;
+        int totalSum = n * (n + 1) / 2;
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        System.out.println(totalSum - sum);
+    }
+}
+
+Qn 50) Subarray with largest sum
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] nums = Arrays.stream(s.nextLine().split(",")).mapToInt(Integer::parseInt).toArray();
+        int maxSum = nums[0], currentSum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        System.out.println(maxSum);
+    }
+}
+
