@@ -1,0 +1,119 @@
+QN 1) Count prime and composite number
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the numbers:");
+        List<Integer> numbers = new ArrayList<>();
+        while (sc.hasNextInt()) {
+            numbers.add(sc.nextInt());
+        }
+
+        int primeCount = 0;
+        int compositeCount = 0;
+
+        for (int num : numbers) {
+            if (num > 1) {
+                boolean isPrime = true;
+                for (int i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    primeCount++;
+                } else {
+                    compositeCount++;
+                }
+            }
+        }
+
+        System.out.println("Composite number: " + compositeCount);
+        System.out.println("Prime number: " + primeCount);
+    }
+}
+
+Qn 2) Mth max and Nth min number
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {14, 16, 87, 36, 25, 89, 34};
+        int M = 1;
+        int N = 3;
+
+        Arrays.sort(arr);
+
+        int mthMax = arr[arr.length - M];
+        int nthMin = arr[N - 1];
+
+        int sum = mthMax + nthMin;
+        int diff = mthMax - nthMin;
+
+        System.out.println(M + "stMaximum Number = " + mthMax);
+        System.out.println(N + "rdMinimum Number = " + nthMin);
+        System.out.println("Sum = " + sum);
+        System.out.println("Difference = " + diff);
+    }
+}
+
+Qn 3) ATM Amount
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] denominations = new int[4];
+        int[] notes = new int[4];
+        int total = 0;
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Enter the " + (i + 1) + "st Denomination:");
+            denominations[i] = sc.nextInt();
+            System.out.println("Enter the " + (i + 1) + "st Denomination number of notes:");
+            notes[i] = sc.nextInt();
+            total += denominations[i] * notes[i];
+        }
+        System.out.println("Total Available Balance in ATM: " + total);
+    }
+}
+
+Qn 4) Palindrome check
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        sc.nextLine(); // consume newline
+        String input = sc.nextLine();
+        if (choice == 1) {
+            System.out.println(isPalindrome(input) ? "Palindrome" : "Not Palindrome");
+        } else if (choice == 2) {
+            int num = Integer.parseInt(input);
+            System.out.println(isPalindrome(String.valueOf(num)) ? "Palindrome" : "Not Palindrome");
+        }
+    }
+
+    static boolean isPalindrome(String s) {
+        return s.equals(new StringBuilder(s).reverse().toString());
+    }
+}
+
+Qn 5) Decimal to binary and octal
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int decimal = sc.nextInt();
+        System.out.println("Binary Number = " + Integer.toBinaryString(decimal));
+        System.out.println("Octal = " + Integer.toOctalString(decimal));
+    }
+}
